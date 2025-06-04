@@ -1,0 +1,17 @@
+@startuml
+actor       usuaio       as Foo1
+boundary    pantalla_cliente    as Faa2
+control     gestor_cliente     as Faa3
+entity      cliente      as Foo4
+
+Foo1 -> Faa2 : ingresa cliente nuevo
+Faa2 -> Faa3 : consulta datos a pedir
+Faa3 --> Faa2 : muestra datos a pedir  
+Faa2 --> Foo1 : muestra datos al cliente
+Foo1 --> Faa2 : completa los datos del cliente
+Faa2 -> Faa3 : ingresa datos del cliente
+Faa3 -> Foo4 : guarda los datos
+Foo4 --> Faa3 : envia confirmacion
+Faa3 --> Faa2 : muestra confirmacion
+Faa2 --> Foo1 : muestra confirmacion
+@enduml
